@@ -41,34 +41,3 @@
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(102, 102, 102, 0.1);
 }
-</lov-write831e-8931-419e-b170-4a3757842754.png"
-            alt="Brand Logo"
-            className="w-full"
-          />
-        </Link>
-        <div className="hidden md:flex items-center space-x-8">
-          <Link to="/shop" className="text-text hover:text-text/80 transition-colors">
-            Shop
-          </Link>
-          <Link to="/book" className="text-text hover:text-text/80 transition-colors">
-            Book Training
-          </Link>
-          <Link to="/gallery" className="text-text hover:text-text/80 transition-colors">
-            Gallery
-          </Link>
-          <Link to="/about" className="text-text hover:text-text/80 transition-colors">
-            About
-          </Link>
-          <Link to="/contact" className="text-text hover:text-text/80 transition-colors">
-            Contact
-          </Link>
-        </div>
-        <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white">
-          Book Now
-        </Button>
-      </div>
-    </nav>
-  );
-};
-
-export default Navbar;
