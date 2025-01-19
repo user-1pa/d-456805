@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">4ortune Fitness</h3>
             <p className="text-white/60 max-w-xs">
-              Revolutionizing tech recruitment with AI-powered matching and seamless hiring processes.
+              Empowering individuals to achieve their fitness goals through personalized training and expert guidance.
             </p>
           </div>
           <div>
