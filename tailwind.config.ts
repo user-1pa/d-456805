@@ -19,19 +19,32 @@ export default {
     },
     extend: {
       colors: {
-        forest: {
-          DEFAULT: "#0A1F2F", // Main background color
-          light: "#132B41", // Slightly lighter variant for cards/sections
+        brand: {
+          DEFAULT: "#1a1a1a", // Main background color
+          accent: "#666666", // Silver accent color
+          light: "#f5f5f5", // Light background
         },
-        mint: {
-          DEFAULT: "#64FFDA", // Primary accent color
-        },
-        divine: {
-          DEFAULT: "#FFD700", // Secondary accent color
+        text: {
+          DEFAULT: "#ffffff",
+          muted: "#a3a3a3",
         }
       },
-      fontFamily: {
-        sans: ["Inter var", "system-ui", "sans-serif"],
+      keyframes: {
+        "logo-zoom-in": {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "logo-pulse": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)" },
+        },
+        "logo-zoom-out": {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(0.8)" },
+        },
+      },
+      animation: {
+        "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-pulse 0.5s ease-in-out 0.5s 3, logo-zoom-out 0.5s ease-in 2s forwards",
       },
     },
   },

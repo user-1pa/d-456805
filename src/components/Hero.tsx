@@ -1,47 +1,85 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+const slides = [
+  {
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48",
+    mantra: "Transform Your Body, Transform Your Life",
+    cta: "Start Your Journey Today"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2",
+    mantra: "Strength Comes from Within",
+    cta: "Join Our Community"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1549576490-b0b4831ef60a",
+    mantra: "Push Your Limits",
+    cta: "Book a Session Now"
+  }
+];
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [showLogo, setShowLogo] = useState(true);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogo(false);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  if (showLogo) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-brand">
+        <img
+          src="/lovable-uploads/565b831e-8931-419e-b170-4a3757842754.png"
+          alt="Brand Logo"
+          className="w-64 animate-logo-reveal"
+        />
+      </div>
+    );
+  }
+
   return (
-    <section className="pt-32 pb-20 px-4">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
-          <div className="flex items-center gap-2 bg-mint/10 w-fit px-4 py-2 rounded-full border border-mint/20">
-            <Star className="w-4 h-4 text-mint" />
-            <span className="text-mint text-sm font-medium">AI-Powered Recruitment</span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
-            Hire top
-            <br />
-            tech talent
-            <br />
-            wisely
-          </h1>
-          <p className="text-lg text-white/80 max-w-md">
-            Find and hire the best tech professionals for your team with our AI-powered recruitment platform.
-          </p>
-          <div className="flex items-center gap-4">
-            <Button className="bg-mint hover:bg-mint/90 text-forest font-medium px-8 py-6 text-lg">
+    <section className="relative h-screen overflow-hidden">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            currentSlide === index ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          <img
+            src={slide.image}
+            alt={slide.mantra}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center p-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white max-w-4xl">
+              {slide.mantra}
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80 mb-8">
+              {slide.cta}
+            </p>
+            <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white font-medium px-8 py-6 text-lg">
               Get Started <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="border-mint/20 text-mint hover:bg-mint/10">
-              Watch Demo
-            </Button>
           </div>
         </div>
-        <div className="relative">
-          <div className="absolute -inset-0.5 bg-mint/20 rounded-2xl blur opacity-30" />
-          <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-            alt="Tech professional"
-            className="relative rounded-2xl shadow-2xl"
-          />
-          <div className="absolute -bottom-10 -left-10 bg-forest-light p-6 rounded-xl shadow-xl border border-mint/10">
-            <p className="text-mint text-4xl font-bold">124k+</p>
-            <p className="text-white/80">Active candidates</p>
-          </div>
-        </div>
-      </div>
+      ))}
     </section>
   );
 };

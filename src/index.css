@@ -6,42 +6,69 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 152 55% 12%;
-    --primary-foreground: 152 55% 98%;
-    --secondary: 152 75% 52%;
-    --secondary-foreground: 152 75% 98%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 152 75% 52%;
-    --accent-foreground: 152 75% 98%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 40%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 152 75% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 40%;
     --radius: 0.5rem;
   }
 
   body {
-    @apply bg-forest text-white antialiased;
-    background-image: radial-gradient(circle at 50% 0%, rgba(100, 255, 218, 0.05), transparent 70%);
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    @apply bg-brand text-text antialiased;
   }
 
   ::selection {
-    @apply bg-mint text-forest;
+    @apply bg-brand-accent text-white;
   }
 }
 
 .glass-nav {
-  background: rgba(10, 31, 47, 0.8);
+  background: rgba(26, 26, 26, 0.8);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+  border-bottom: 1px solid rgba(102, 102, 102, 0.1);
 }
+</lov-write831e-8931-419e-b170-4a3757842754.png"
+            alt="Brand Logo"
+            className="w-full"
+          />
+        </Link>
+        <div className="hidden md:flex items-center space-x-8">
+          <Link to="/shop" className="text-text hover:text-text/80 transition-colors">
+            Shop
+          </Link>
+          <Link to="/book" className="text-text hover:text-text/80 transition-colors">
+            Book Training
+          </Link>
+          <Link to="/gallery" className="text-text hover:text-text/80 transition-colors">
+            Gallery
+          </Link>
+          <Link to="/about" className="text-text hover:text-text/80 transition-colors">
+            About
+          </Link>
+          <Link to="/contact" className="text-text hover:text-text/80 transition-colors">
+            Contact
+          </Link>
+        </div>
+        <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white">
+          Book Now
+        </Button>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
