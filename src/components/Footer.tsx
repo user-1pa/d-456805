@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">ByteHire</h3>
+            <h3 className="text-2xl font-bold">4ortune Fitness</h3>
             <p className="text-white/60 max-w-xs">
               Revolutionizing tech recruitment with AI-powered matching and seamless hiring processes.
             </p>
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-mint/10 mt-16 pt-8 text-center text-white/60">
-          <p>&copy; {new Date().getFullYear()} ByteHire. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} 4ortune Fitness. All rights reserved.</p>
         </div>
       </div>
     </footer>
