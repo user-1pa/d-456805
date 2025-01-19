@@ -9,17 +9,23 @@ const Navbar = () => {
           4ortune Fitness
         </Link>
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/app" className="text-white/90 hover:text-white transition-colors">
-            App
+          <Link to="/shop" className="text-white/90 hover:text-white transition-colors">
+            Shop
           </Link>
-          <Link to="/pricing" className="text-white/90 hover:text-white transition-colors">
-            Pricing
+          <Link to="/services" className="text-white/90 hover:text-white transition-colors">
+            Services
+          </Link>
+          <Link to="/media" className="text-white/90 hover:text-white transition-colors">
+            Media
+          </Link>
+          <Link to="/testimonials" className="text-white/90 hover:text-white transition-colors">
+            Testimonials
           </Link>
           <Link to="/about" className="text-white/90 hover:text-white transition-colors">
             About Us
           </Link>
-          <Link to="/blog" className="text-white/90 hover:text-white transition-colors">
-            Blog
+          <Link to="/contact" className="text-white/90 hover:text-white transition-colors">
+            Contact Us
           </Link>
         </div>
         <Button className="bg-mint hover:bg-mint-light text-forest font-medium">
