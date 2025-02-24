@@ -36,8 +36,11 @@ export default {
           "100%": { transform: "scale(1)" },
         },
         "logo-pulse": {
-          "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.1)" },
+          "0%": { transform: "scale(1)" },
+          "25%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(1)" },
+          "75%": { transform: "scale(1.1)" },
+          "100%": { transform: "scale(1)" },
         },
         "logo-zoom-out": {
           "0%": { transform: "scale(1)" },
@@ -59,7 +62,7 @@ export default {
         }
       },
       animation: {
-        "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-pulse 1s ease-in-out 0.5s forwards, logo-spin 2s ease-in-out 1.5s forwards, logo-zoom-out 0.5s ease-in 3.5s forwards",
+        "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-pulse 4s ease-in-out 0.5s forwards, logo-spin 2s ease-in-out 4.5s forwards",
         "header-reveal": "header-slide-down 0.5s ease-out forwards"
       },
     },
