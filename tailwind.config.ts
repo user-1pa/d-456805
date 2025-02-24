@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -42,9 +43,20 @@ export default {
           "0%": { transform: "scale(1)" },
           "100%": { transform: "scale(0.8)" },
         },
+        "header-slide-down": {
+          "0%": { 
+            opacity: "0",
+            transform: "translateY(-20px)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        }
       },
       animation: {
         "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-pulse 0.5s ease-in-out 0.5s 3, logo-zoom-out 0.5s ease-in 2s forwards",
+        "header-reveal": "header-slide-down 0.5s ease-out forwards"
       },
     },
   },

@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -46,7 +47,7 @@ const Hero = () => {
         <img
           src="/lovable-uploads/565b831e-8931-419e-b170-4a3757842754.png"
           alt="Brand Logo"
-          className="w-64 animate-logo-reveal"
+          className="w-96 animate-logo-reveal"
         />
       </div>
     );
