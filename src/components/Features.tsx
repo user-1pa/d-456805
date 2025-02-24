@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Star, Award, ShieldCheck } from "lucide-react";
 
@@ -5,41 +6,69 @@ const Features = () => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            How it works?
-          </h2>
-          <p className="text-white/80">Our AI-powered platform simplifies tech recruitment</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: Star,
-              title: "Post Your Requirements",
-              description: "Specify your needs and let our AI match you with the perfect candidates",
-            },
-            {
-              icon: Award,
-              title: "Review Matches",
-              description: "Get a curated list of pre-screened candidates that match your criteria",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Hire the Best",
-              description: "Interview and hire top tech talent efficiently",
-            },
-          ].map((feature, index) => (
-            <div 
-              key={index} 
-              className="bg-forest-light p-8 rounded-xl border border-mint/10"
-            >
-              <div className="w-12 h-12 bg-mint rounded-full flex items-center justify-center mb-6">
-                {React.createElement(feature.icon, { className: "w-6 h-6 text-forest" })}
+        <div className="grid md:grid-cols-2 gap-16">
+          {/* Why 4ortune Fitness Section */}
+          <div>
+            <h2 className="text-4xl font-bold mb-8 text-white">
+              Why 4ortune Fitness?
+            </h2>
+            <p className="text-white/80 mb-8">
+              We're a rising fitness brand built on passion, dedication, and results. Here's why people are joining us:
+            </p>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">💪</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Committed to Your Growth</h3>
+                  <p className="text-white/80">We're here to support you every step of the way.</p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-white/80">{feature.description}</p>
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">⏳</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Personalized Training & Apparel</h3>
+                  <p className="text-white/80">Designed for those ready to push their limits.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">🚀</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">A Growing Community</h3>
+                  <p className="text-white/80">Be part of something bigger—your journey starts here.</p>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* How It Works Section */}
+          <div>
+            <h2 className="text-4xl font-bold mb-8 text-white">
+              How It Works
+            </h2>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">1️⃣</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Set Your Goals</h3>
+                  <p className="text-white/80">Whether it's getting stronger, leaner, or more confident, we tailor a plan for you.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">2️⃣</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Train with Us</h3>
+                  <p className="text-white/80">Personalized coaching and programs that fit your lifestyle.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="text-3xl">3️⃣</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Elevate Your Style</h3>
+                  <p className="text-white/80">Fitness meets fashion with our exclusive apparel.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
