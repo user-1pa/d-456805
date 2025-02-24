@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-
 const Footer = () => {
-  return (
-    <footer className="py-20 px-4 border-t border-mint/10">
+  return <footer className="py-20 px-4 border-t border-mint/10">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="space-y-4">
@@ -12,7 +10,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h4 className="font-medium mb-4">Product</h4>
+            <h4 className="font-medium mb-4">Shop</h4>
             <ul className="space-y-2">
               <li><Link to="/features" className="text-white/60 hover:text-mint transition-colors">Features</Link></li>
               <li><Link to="/pricing" className="text-white/60 hover:text-mint transition-colors">Pricing</Link></li>
@@ -40,8 +38,6 @@ const Footer = () => {
           <p>&copy; {new Date().getFullYear()} 4ortune Fitness. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
