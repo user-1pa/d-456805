@@ -45,7 +45,7 @@ export default {
         },
         "logo-spin": {
           "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(-1800deg)" }, // 5 full counterclockwise rotations (-360 * 5)
+          "100%": { transform: "rotate(-1800deg)" }, // 5 full counterclockwise rotations
         },
         "header-slide-down": {
           "0%": { 
@@ -59,7 +59,7 @@ export default {
         }
       },
       animation: {
-        "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-spin 2s ease-in-out forwards, logo-zoom-out 0.5s ease-in 2.5s forwards",
+        "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-pulse 1s ease-in-out 0.5s forwards, logo-spin 2s ease-in-out 1.5s forwards, logo-zoom-out 0.5s ease-in 3.5s forwards",
         "header-reveal": "header-slide-down 0.5s ease-out forwards"
       },
     },
