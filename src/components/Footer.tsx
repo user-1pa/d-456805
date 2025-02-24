@@ -10,7 +10,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h4 className="font-medium mb-4">Shop</h4>
+            <h4 className="font-medium mb-4">Apparel</h4>
             <ul className="space-y-2">
               <li><Link to="/features" className="text-white/60 hover:text-mint transition-colors">Features</Link></li>
               <li><Link to="/pricing" className="text-white/60 hover:text-mint transition-colors">Pricing</Link></li>
