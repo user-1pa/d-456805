@@ -21,9 +21,9 @@ export default {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#1a1a1a", // Main background color
-          accent: "#666666", // Silver accent color
-          light: "#f5f5f5", // Light background
+          DEFAULT: "#1a1a1a",
+          accent: "#666666",
+          light: "#f5f5f5",
         },
         text: {
           DEFAULT: "#ffffff",
@@ -43,6 +43,10 @@ export default {
           "0%": { transform: "scale(1)" },
           "100%": { transform: "scale(0.8)" },
         },
+        "logo-spin": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(-1800deg)" }, // 5 full counterclockwise rotations (-360 * 5)
+        },
         "header-slide-down": {
           "0%": { 
             opacity: "0",
@@ -55,7 +59,7 @@ export default {
         }
       },
       animation: {
-        "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-pulse 0.5s ease-in-out 0.5s 3, logo-zoom-out 0.5s ease-in 2s forwards",
+        "logo-reveal": "logo-zoom-in 0.5s ease-out forwards, logo-spin 2s ease-in-out forwards, logo-zoom-out 0.5s ease-in 2.5s forwards",
         "header-reveal": "header-slide-down 0.5s ease-out forwards"
       },
     },

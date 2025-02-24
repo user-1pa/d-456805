@@ -1,10 +1,12 @@
 
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Sun, Moon } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -13,6 +15,11 @@ const Navbar = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle('dark');
+  };
 
   if (!showNav) {
     return null;
@@ -31,6 +38,9 @@ const Navbar = () => {
           <Link to="/services" className="text-white/90 hover:text-white transition-colors">
             Services
           </Link>
+          <Link to="/events" className="text-white/90 hover:text-white transition-colors">
+            Events
+          </Link>
           <Link to="/media" className="text-white/90 hover:text-white transition-colors">
             Media
           </Link>
@@ -44,9 +54,11 @@ const Navbar = () => {
             Contact Us
           </Link>
         </div>
-        <Button className="bg-mint hover:bg-mint-light text-forest font-medium">
-          Get started
-        </Button>
+        <div className="flex items-center gap-2">
+          <Sun className="h-5 w-5 text-white" />
+          <Switch checked={isDark} onCheckedChange={toggleTheme} />
+          <Moon className="h-5 w-5 text-white" />
+        </div>
       </div>
     </nav>
   );
