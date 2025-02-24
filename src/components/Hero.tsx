@@ -2,22 +2,20 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48",
-    mantra: "Transform Your Body, Transform Your Life",
-    cta: "Start Your Journey Today"
+    mantra: "Welcome to 4ortune Fitness – Where Strength Meets Fortune",
+    description: "At 4ortune Fitness, we believe that success isn't just about luck—it's about dedication, perseverance, and the right mindset. Whether you're looking to transform your body, elevate your performance, or simply embrace a healthier lifestyle, we're here to guide you every step of the way.",
+    cta: "Start Your Journey"
   },
   {
     image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2",
-    mantra: "Strength Comes from Within",
+    mantra: "Our Mission",
+    description: "Our mission is simple: to empower you to unlock your full potential through expert personal training and high-quality athletic apparel. Join our community and start your journey toward strength, confidence, and success today.",
     cta: "Join Our Community"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1549576490-b0b4831ef60a",
-    mantra: "Push Your Limits",
-    cta: "Book a Session Now"
   }
 ];
 
@@ -72,12 +70,26 @@ const Hero = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white max-w-4xl">
               {slide.mantra}
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-8">
-              {slide.cta}
+            <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-4xl">
+              {slide.description}
             </p>
-            <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white font-medium px-8 py-6 text-lg">
-              Get Started <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <div className="flex gap-4 flex-wrap justify-center">
+              <Link to="/shop">
+                <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white font-medium px-8 py-6 text-lg">
+                  Shop Now <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/services">
+                <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white font-medium px-8 py-6 text-lg">
+                  Book a Training Session <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/events">
+                <Button className="bg-brand-accent hover:bg-brand-accent/90 text-white font-medium px-8 py-6 text-lg">
+                  Register for an Event <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       ))}

@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Sun, Moon } from "lucide-react";
+import { SunMoon } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 
 const Navbar = () => {
@@ -55,9 +55,8 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center gap-2">
-          <Sun className="h-5 w-5 text-white" />
+          <SunMoon className={`h-5 w-5 text-white transition-transform ${isDark ? 'rotate-180' : 'rotate-0'}`} />
           <Switch checked={isDark} onCheckedChange={toggleTheme} />
-          <Moon className="h-5 w-5 text-white" />
         </div>
       </div>
     </nav>
