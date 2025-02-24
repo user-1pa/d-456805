@@ -6,22 +6,6 @@ const Features = () => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto">
-        {/* Stats Section */}
-        <div className="grid md:grid-cols-3 gap-8 text-center mb-20">
-          <div className="space-y-2">
-            <p className="text-4xl font-bold text-white">95%</p>
-            <p className="text-white/80">Placement Rate</p>
-          </div>
-          <div className="space-y-2">
-            <p className="text-4xl font-bold text-white">48hrs</p>
-            <p className="text-white/80">Average Response Time</p>
-          </div>
-          <div className="space-y-2">
-            <p className="text-4xl font-bold text-white">10k+</p>
-            <p className="text-white/80">Companies Trust Us</p>
-          </div>
-        </div>
-
         <div className="grid md:grid-cols-2 gap-16">
           {/* Why 4ortune Fitness Section */}
           <div>
