@@ -1,13 +1,14 @@
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Menu, X, ShoppingCart, User, SunMoon } from "lucide-react";
+import { Menu, X, ShoppingCart, User, SunMoon, Search } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,6 +27,10 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
   return (
     <>
       {/* Initial Logo Animation */}
@@ -42,16 +47,24 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 animate-header-reveal">
           <div className="glass-nav">
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-              <button 
-                onClick={toggleMenu}
-                className="p-2 rounded-lg border border-blue-500"
-              >
-                {isMenuOpen ? (
-                  <X className="h-6 w-6 text-white" />
-                ) : (
-                  <Menu className="h-6 w-6 text-white" />
-                )}
-              </button>
+              <div className="flex items-center gap-4">
+                <button 
+                  onClick={toggleMenu}
+                  className="p-2 rounded-lg border border-blue-500"
+                >
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6 text-white" />
+                  ) : (
+                    <Menu className="h-6 w-6 text-white" />
+                  )}
+                </button>
+                <button
+                  onClick={toggleSearch}
+                  className="p-2 rounded-lg border border-blue-500"
+                >
+                  <Search className="h-6 w-6 text-white" />
+                </button>
+              </div>
 
               <Link to="/" className="text-2xl font-bold text-white absolute left-1/2 -translate-x-1/2">
                 4ortune Fitness
@@ -66,6 +79,17 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
+
+            {/* Search Bar */}
+            {isSearchOpen && (
+              <div className="container mx-auto px-4 py-4 border-t border-blue-500">
+                <input
+                  type="search"
+                  placeholder="Search products..."
+                  className="w-full p-2 rounded-lg bg-brand text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu */}
@@ -92,6 +116,9 @@ const Navbar = () => {
                 </Link>
                 <Link to="/contact" className="block text-2xl text-white">
                   Contact
+                </Link>
+                <Link to="/profile" className="block text-2xl text-white">
+                  My Account
                 </Link>
                 <div className="flex items-center gap-4 text-2xl text-white">
                   Theme
