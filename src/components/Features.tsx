@@ -1,43 +1,44 @@
 
 import React from "react";
-import { Star, Award, ShieldCheck } from "lucide-react";
 
 const Features = () => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Why 4ortune Fitness Section */}
           <div>
             <h2 className="text-4xl font-bold mb-8 text-white">
-              Why 4ortune Fitness?
+              Our Mission – Build Strength, Create Fortune
             </h2>
             <p className="text-white/80 mb-8">
-              We're a rising fitness brand built on passion, dedication, and results. Here's why people are joining us:
+              At 4ortune Fitness, we believe that every rep, every step, and every drop of sweat brings you closer to success. We're not just about working out—we're about building a winning mindset.
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <span className="text-3xl">💪</span>
+                <span className="text-3xl">🔥</span>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Committed to Your Growth</h3>
-                  <p className="text-white/80">We're here to support you every step of the way.</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">Mind Over Matter</h3>
+                  <p className="text-white/80">Fitness isn't just physical; it's mental. Push past limits and redefine your strength.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <span className="text-3xl">⏳</span>
+                <span className="text-3xl">🎯</span>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Personalized Training & Apparel</h3>
-                  <p className="text-white/80">Designed for those ready to push their limits.</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">Progress Over Perfection</h3>
+                  <p className="text-white/80">Every journey starts somewhere. Take the first step and grow with us.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <span className="text-3xl">🚀</span>
+                <span className="text-3xl">💡</span>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">A Growing Community</h3>
-                  <p className="text-white/80">Be part of something bigger—your journey starts here.</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">Community & Support</h3>
+                  <p className="text-white/80">We rise together. Surround yourself with like-minded individuals who uplift and inspire.</p>
                 </div>
               </div>
             </div>
+            <p className="text-white/80 mt-8 text-lg font-semibold">
+              Are you ready to create your own fortune? Let's get started today.
+            </p>
           </div>
 
           {/* How It Works Section */}
