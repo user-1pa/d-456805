@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+---
+
+---
+
+### `docs/07-site-layout-and-pages.mdc`
+```markdown
+# 07 - Site Layout and Pages
+
+## Pages Required
+- **Home**  
+- **Services**  
+- **Events** (with sub-pages if needed)  
+- **Media** (photos, videos, layout)  
+- **Testimonials**  
+- **About Us**  
+- **Contact**  
+
+## Suggested Folder Structure
+
+src/ ├─ components/ │ └─ Layout/ // Header, Footer, Nav components ├─ pages/ │ ├─ Home.js │ ├─ Services.js │ ├─ Events/ │ │ └─ EventsMain.js │ ├─ Media.js │ ├─ Testimonials.js │ ├─ AboutUs.js │ └─ Contact.js └─ App.js
+
+
+## Layout Tips
+1. **Header/Navbar**  
+   - Use a consistent navbar across all pages. 
+   - Highlight the active route.
+2. **Footer**  
+   - Include links to Terms & Services, Privacy Policy, Contact Info, etc.
+
+## Sub-Pages
+- **Events Sub-Pages**: If you have multiple events, create a dynamic route (e.g., `events/[eventId].js`) or separate pages for each event.
+- **Media Sub-Pages**: For photo galleries or video listings.
+
+## Placeholders
+- For content that isn’t ready, use placeholders (images, text, or a “Coming Soon” message).
+
+## Next
+Go to [08-shop-and-cart.mdc](./08-shop-and-cart.mdc) to set up product placeholders and cart functionality.

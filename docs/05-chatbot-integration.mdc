@@ -1,0 +1,61 @@
+---
+description: 
+globs: 
+---
+# 05 - Chatbot Integration (IBM Watson)
+
+This document guides you through integrating IBM Watson Assistant into your React application.
+
+---
+
+## 1. IBM Watson Assistant Setup
+
+1. **Create an IBM Cloud Account**  
+   - Go to [IBM Cloud](https://cloud.ibm.com/registration) and sign up or log in if you already have an account.
+
+2. **Provision a Watson Assistant Resource**  
+   - In the IBM Cloud Console, go to **Catalog** > **Services** > **AI** > **Watson Assistant**.
+   - Create a new **Watson Assistant** instance.
+   - Note any required details (e.g., region, plan type).
+
+3. **Create a Watson Assistant**  
+   - Open your newly created service.
+   - Under **Manage** or **Launch Watson Assistant**, create a new **Assistant** (or “Skill”).
+   - Configure your intents, entities, and dialog. (This is where you design the conversation flow.)
+
+4. **Gather Credentials**  
+   - In the **Manage** or **Service Credentials** tab, find or create a new set of credentials. You’ll typically see:
+     - **API Key** (e.g., `abcd1234...`)
+     - **URL** or **Endpoint** (e.g., `https://api.us-south.assistant.watson.cloud.ibm.com`)
+     - **Assistant ID** (or **Skill ID**) if needed for targeted dialogue
+     - **Version** (optional, often specified as a date or version string)
+
+---
+
+## 2. Environment Variables and Configuration
+
+1. **Create or Update Your `.env` File**  
+   - If your project is purely a React front end (like Create React App), place the `.env` file **at the root** of the React project (same level as `package.json`).  
+   - **Important**: Prefix the variable names with `REACT_APP_` so that Create React App can expose them in the frontend. Example:
+     ```bash
+     REACT_APP_IBM_WATSON_API_KEY=<YOUR_API_KEY>
+     REACT_APP_IBM_WATSON_URL=<YOUR_WATSON_URL>
+     REACT_APP_IBM_WATSON_ASSISTANT_ID=<YOUR_ASSISTANT_ID>
+     ```
+   - Add `.env` to your `.gitignore` to prevent committing sensitive credentials to your repository.
+
+2. **For a Separate Backend**  
+   - If you have a backend (Node.js/Express, Next.js API routes, etc.), place a separate `.env` in the **backend folder**.  
+   - Do **not** prefix variables with `REACT_APP_` for server-side usage. (e.g., `IBM_WATSON_API_KEY=<YOUR_API_KEY>`).  
+   - Ensure your backend `.gitignore` also excludes `.env`.
+
+---
+
+## 3. Installing Dependencies
+
+IBM Watson Assistant offers several SDK options. For Node.js, you can use the [IBM Watson Node.js SDK](https://github.com/watson-developer-cloud/node-sdk). If calling Watson directly from your React front end, you’d typically set up a **proxy** or **API route** to keep your API key secure.
+
+1. **Node.js SDK (on a backend)**  
+   ```bash
+   npm install ibm-watson@latest
+   npm install dotenv

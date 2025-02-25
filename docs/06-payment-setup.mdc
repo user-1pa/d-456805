@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+---
+
+---
+
+### `docs/06-payment-setup.mdc`
+```markdown
+# 06 - Payment Setup
+
+## Stripe and/or Link
+
+1. **Create Stripe Account**  
+   - Go to [Stripe Dashboard](https://dashboard.stripe.com/register).
+   - Retrieve **Publishable Key** and **Secret Key**.
+
+2. **Install Dependencies**  
+   ```bash
+   npm install @stripe/stripe-js @stripe/react-stripe-js

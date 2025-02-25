@@ -1,0 +1,25 @@
+---
+description: project outline
+globs: 
+---
+# 01 - Overview
+
+## Project Scope
+- **Goal**: Build on an existing React-based website demo.
+- **Core Stack**: React, CSS, (optionally Next.js or Create React App), PlanetScale (DB), Stripe/Link (payments).
+- **Features**:
+  1. User Authentication (Google Sign-In/Sign-Up).
+  2. Chatbot Integration.
+  3. Newsletter Subscriptions.
+  4. Media Page (photos, videos).
+  5. E-Commerce functionality with product pages, shopping cart, checkout.
+  6. Utility pages: Terms & Conditions, Privacy Policy, error/confirmation pages.
+
+## Pages to Implement/Reformat
+- Home, Services, Events, Media, Testimonials, About Us, Contact.
+- Sub-pages for Events, Media, Shop Items, and more.
+- Cart page reformat.
+- User account page reformat.
+
+## Next Steps
+Proceed to [02-project-setup.mdc](mdc:02-project-setup.mdc) for environment setup instructions.

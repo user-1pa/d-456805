@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+---
+
+---
+
+### `docs/04-database-connection.mdc`
+```markdown
+# 04 - Database Connection (PlanetScale)
+
+## Create a PlanetScale Database
+1. **Sign Up/In** at [PlanetScale](https://planetscale.com/).
+2. **Create a New Database** in your chosen region.
+
+## Connect to PlanetScale
+1. **Obtain Connection String**  
+   - In the PlanetScale dashboard, create a branch and get the connection URL (often a `mysql://` or `pscale://` type URL).
+2. **Set Environment Variables**  
+   ```bash
+   REACT_APP_DATABASE_URL=<YOUR_CONNECTION_URL>

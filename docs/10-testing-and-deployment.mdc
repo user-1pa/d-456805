@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+---
+# 10 - Testing and Deployment
+
+## Testing
+1. **Unit Tests**  
+   - Use `Jest` + `React Testing Library`.
+   - Test components (e.g., cart logic, chatbot, forms).
+2. **Integration Tests**  
+   - Mock API calls or test with a staging environment for PlanetScale, Stripe, etc.
+3. **E2E Tests**  
+   - Tools like Cypress or Playwright to simulate user interactions.
+
+## Deployment
+1. **Hosting**  
+   - Popular choices: Vercel, Netlify, AWS, or your own server.
+   - If using Next.js, you can deploy directly to Vercel.
+2. **Environment Variables**  
+   - Set environment variables on your hosting platform for secrets (Stripe keys, DB credentials).
+3. **Automated Builds**  
+   - Configure your Git repo to build and deploy on push to `main` or on a PR merge.
+
+## Next Steps
+- Review the entire docs folder for any missing details.
+- Start iterating and customizing your code to match real content and brand style.

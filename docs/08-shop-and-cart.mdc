@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+---
+# 08 - Shop and Cart
+
+## Shop Page Requirements
+1. **Product Listings**  
+   - Display placeholders for merchandise with images, names, prices, etc.
+2. **Sub-Pages (Product Detail)**  
+   - Show detailed info per product, "Add to Cart" button, recommended items.
+
+## Cart Functionality
+1. **Add to Cart**  
+   - Update a cart state (context, Redux, or local storage).
+   - Trigger a small animation or icon update on the cart button in the header.
+2. **Cart Page**  
+   - Display all items, quantity, and cost.
+   - “Checkout” button that leads to payment flow.
+
+## Example Cart State (Context)
+```js
+import React, { createContext, useReducer } from 'react';
+
+export const CartContext = createContext();
+
+function cartReducer(state, action) {
+  switch(action.type) {
+    case 'ADD_ITEM':
+      // logic to add
+      return newState;
+    case 'REMOVE_ITEM':
+      // logic to remove
+      return newState;
+    default:
+      return state;
+  }
+}
+
+export function CartProvider({ children }) {
+  const [state, dispatch] = useReducer(cartReducer, { items: [] });
+
+  return (
+    <CartContext.Provider value={{ state, dispatch }}>
+      {children}
+    </CartContext.Provider>
+  );
+}

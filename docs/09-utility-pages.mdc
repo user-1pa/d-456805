@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+---
+
+---
+
+### `docs/09-utility-pages.mdc`
+```markdown
+# 09 - Utility Pages
+
+## Pages Needed
+- **Terms & Services** (or “Terms of Service”)
+- **Privacy Policy**
+- **Error Pages** (e.g., 404 Not Found, 500 Server Error)
+- **Order Confirmation** (after checkout)
+- **Submission Confirmation** (for contact forms, etc.)
+
+## Implementation Tips
+1. **Static Content**  
+   - TOS and Privacy Policy may not change often; place them in separate `.js` files or a CMS.
+2. **Dynamic Content**  
+   - For confirmation pages, pass or retrieve order details from context or query params (e.g., `orderId`).
+3. **Error Handling**  
+   - For a 404 page, set up a catch-all route in React Router or Next.js `[...slug]`.
+
+## Next
+Finally, see [10-testing-and-deployment.mdc](mdc:10-testing-and-deployment.mdc) for QA and going live.

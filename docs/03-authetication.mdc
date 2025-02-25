@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+---
+
+---
+
+### `docs/03-authentication.mdc`
+```markdown
+# 03 - Authentication
+
+## Google Sign-In/Sign-Up Integration
+1. **Create a Google Cloud Project**  
+   - Go to [Google Cloud Console](mdc:https:/console.cloud.google.com) and create a new project.
+   - Enable the "Google+ API" or "Google Identity Services" (depending on the library used).
+   - Create OAuth credentials (Client ID, Client Secret).
+
+2. **Install Libraries**  
+   ```bash
+   npm install react-google-login
+   # or any other relevant library
