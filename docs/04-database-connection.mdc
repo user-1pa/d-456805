@@ -3,19 +3,82 @@ description:
 globs: 
 ---
 
----
 
 ### `docs/04-database-connection.mdc`
 ```markdown
-# 04 - Database Connection (PlanetScale)
+# 04 - Database Connection (Supabase)
 
-## Create a PlanetScale Database
-1. **Sign Up/In** at [PlanetScale](https://planetscale.com/).
-2. **Create a New Database** in your chosen region.
+## 1. Creating a Supabase Database
 
-## Connect to PlanetScale
-1. **Obtain Connection String**  
-   - In the PlanetScale dashboard, create a branch and get the connection URL (often a `mysql://` or `pscale://` type URL).
-2. **Set Environment Variables**  
-   ```bash
-   REACT_APP_DATABASE_URL=<YOUR_CONNECTION_URL>
+1. **Sign Up/In**  
+   - Visit @Supabase and sign up or log in.
+
+2. **Create a New Project**  
+   - In your Supabase dashboard, click on **New Project**.
+   - Enter your project details such as:
+     - **Project Name**: e.g., `my-ecommerce-demo`
+     - **Password**: Set a secure password for the database.
+     - **Region**: Select a region close to your target audience.
+   - Click **Create New Project** and wait for Supabase to provision your database.
+
+3. **Review Connection Details**  
+   - Once your project is created, go to the **Settings** > **Database** section to find your connection details.
+   - Key details include:
+     - **Host**
+     - **Port**
+     - **Database name**
+     - **User**
+     - **Password**
+     - **Connection string** (typically in the format `postgresql://user:password@host:port/database`)
+
+---
+
+## 2. Environment Variables
+
+1. **Set Up Your `.env` File**  
+   - In your project root, create or update a `.env` file (if using Create React App or Next.js, this file is typically at the root).
+   - Add your Supabase connection details (for a Node.js/Express backend or using Supabase client libraries in your frontend):
+
+     ```bash
+     REACT_APP_SUPABASE_URL=<YOUR_SUPABASE_URL>
+     REACT_APP_SUPABASE_ANON_KEY=<YOUR_SUPABASE_ANON_KEY>
+     ```
+   - For server-side code, you might use non-prefixed variables:
+     ```bash
+     SUPABASE_URL=<YOUR_SUPABASE_URL>
+     SUPABASE_SERVICE_ROLE_KEY=<YOUR_SUPABASE_SERVICE_ROLE_KEY>
+     ```
+   - **Important**: Add `.env` to your `.gitignore` to prevent exposing your credentials.
+
+---
+
+## 3. Installing Dependencies
+
+Depending on your setup, you can use Supabase’s client library to interact with your database.
+
+1. **For a React Frontend (or Next.js)**  
+   - Install the Supabase JavaScript library:
+     ```bash
+     npm install @supabase/supabase-js
+     ```
+   - Or using yarn:
+     ```bash
+     yarn add @supabase/supabase-js
+     ```
+
+2. **For a Node.js/Express Backend**  
+   - You can also use `@supabase/supabase-js` or a PostgreSQL client like `pg` for more advanced queries.
+
+---
+
+## 4. Connecting to Supabase
+
+### Frontend Example (React)
+```tsx
+// supabaseClient.js
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
