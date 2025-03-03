@@ -3,6 +3,7 @@ description:
 globs: 
 ---
 
+---
 ### `docs/03-authentication.mdc`
 ```markdown
 # 03 - Authentication
