@@ -3,15 +3,16 @@ description:
 globs: 
 ---
 
----
-
 ### `docs/03-authentication.mdc`
 ```markdown
 # 03 - Authentication
+## Email and Password Sign-In/Sign-Up
+**Create a standard Email and Password User Authentication**
+   - Connect to the database, build a schema, and input and retrieve user account information for use
 
 ## Google Sign-In/Sign-Up Integration
 1. **Create a Google Cloud Project**  
-   - Go to [Google Cloud Console](mdc:https:/console.cloud.google.com) and create a new project.
+   - Go to @Google Cloud Console and create a new project.
    - Enable the "Google+ API" or "Google Identity Services" (depending on the library used).
    - Create OAuth credentials (Client ID, Client Secret).
 
@@ -19,3 +20,4 @@ globs:
    ```bash
    npm install react-google-login
    # or any other relevant library
+
