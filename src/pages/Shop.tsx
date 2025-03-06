@@ -31,11 +31,20 @@ const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("featured");
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Load products on component mount
   useEffect(() => {
-    setProducts(getAllProducts());
-    setFilteredProducts(getAllProducts());
+    setIsLoading(true);
+    try {
+      const allProducts = getAllProducts();
+      setProducts(allProducts);
+      setFilteredProducts(allProducts);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
   // Apply filters and sorting
