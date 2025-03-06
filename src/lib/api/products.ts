@@ -5,7 +5,7 @@ import { Product, ProductCategory } from '@/types/product';
 type SupabaseProduct = Database['public']['Tables']['products']['Row'];
 
 // Convert Supabase product to our application Product type
-const mapSupabaseProduct = (product: SupabaseProduct): Product => {
+export const mapSupabaseProduct = (product: SupabaseProduct): Product => {
   return {
     id: product.id,
     name: product.name,
