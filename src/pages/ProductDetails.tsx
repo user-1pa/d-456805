@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { getProductById, getAllProducts } from "@/data/products";
 import { Product, ProductSize, ProductColor } from "@/types/product";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/shop/ProductCard";
@@ -27,6 +29,9 @@ import {
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const { addItem } = useCart();
+  const { toast } = useToast();
+  const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,14 +90,35 @@ const ProductDetail = () => {
     }
   };
 
-  // Handle add to cart (placeholder for now)
+  // Handle add to cart
   const handleAddToCart = () => {
-    // This will be implemented with the cart context
-    console.log("Added to cart:", {
-      product,
-      quantity,
-      size: selectedSize,
-      color: selectedColor
+    if (!product) return;
+    
+    // Check if size is required but not selected
+    if (product.sizes && product.sizes.length > 0 && !selectedSize) {
+      toast({
+        title: "Please select a size",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Check if color is required but not selected
+    if (product.colors && product.colors.length > 0 && !selectedColor) {
+      toast({
+        title: "Please select a color",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Add item to cart
+    addItem(product, quantity, selectedSize, selectedColor);
+    
+    // Show success toast
+    toast({
+      title: "Added to cart",
+      description: `${quantity} × ${product.name} added to your cart`,
     });
   };
 
@@ -335,6 +361,16 @@ const ProductDetail = () => {
                 >
                   <ShoppingCart className="mr-2 h-5 w-5" />
                   Add to Cart
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="flex-1 border-mint text-mint hover:text-white hover:border-white h-12"
+                  onClick={() => {
+                    handleAddToCart();
+                    navigate('/cart');
+                  }}
+                >
+                  Buy Now
                 </Button>
                 <Button 
                   variant="outline" 
