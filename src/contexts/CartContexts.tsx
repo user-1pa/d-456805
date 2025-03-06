@@ -30,6 +30,15 @@ const initialCart: Cart = {
 // Create the cart context
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+// Hook to use the cart context
+export const useCart = (): CartContextType => {
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error("useCart must be used within a CartProvider");
+  }
+  return context;
+};
+
 // Helper function to generate item key
 const getItemKey = (id: string, size?: ProductSize, color?: ProductColor): string => {
   return `${id}${size ? `-${size}` : ""}${color ? `-${color}` : ""}`;
@@ -163,4 +172,81 @@ const calculateSubtotal = (items: CartItem[]): number => {
       : item.product.price;
       
     return total + price * item.quantity;
-  }, 0
+  }, 0);
+};
+
+// Cart Provider component
+export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // Load cart from localStorage
+  const loadFromStorage = (): Cart => {
+    if (typeof window === "undefined") {
+      return initialCart;
+    }
+    
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      try {
+        return JSON.parse(storedCart);
+      } catch (error) {
+        console.error("Failed to parse cart from localStorage:", error);
+      }
+    }
+    return initialCart;
+  };
+  
+  // Initialize reducer with persisted state if available
+  const [cart, dispatch] = useReducer(cartReducer, initialCart, loadFromStorage);
+  
+  // Calculate total item count
+  const itemCount = cart.items.reduce((count, item) => count + item.quantity, 0);
+  
+  // Persist cart to localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+  
+  // Add item to cart
+  const addItem = (product: Product, quantity: number, size?: ProductSize, color?: ProductColor) => {
+    dispatch({
+      type: "ADD_ITEM",
+      payload: { product, quantity, size, color },
+    });
+  };
+  
+  // Remove item from cart
+  const removeItem = (id: string, size?: ProductSize, color?: ProductColor) => {
+    dispatch({
+      type: "REMOVE_ITEM",
+      payload: { id, size, color },
+    });
+  };
+  
+  // Update item quantity
+  const updateQuantity = (id: string, quantity: number, size?: ProductSize, color?: ProductColor) => {
+    dispatch({
+      type: "UPDATE_QUANTITY",
+      payload: { id, quantity, size, color },
+    });
+  };
+  
+  // Clear cart
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+  
+  // Create context value
+  const contextValue: CartContextType = {
+    cart,
+    addItem,
+    removeItem,
+    updateQuantity,
+    clearCart,
+    itemCount,
+  };
+  
+  return (
+    <CartContext.Provider value={contextValue}>
+      {children}
+    </CartContext.Provider>
+  );
+};
