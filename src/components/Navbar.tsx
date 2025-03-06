@@ -1,10 +1,12 @@
-
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingCart, User, SunMoon, Search } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import { useCart } from "@/contexts/CartContext";
+import { Badge } from "@/components/ui/badge";
 
 const Navbar = () => {
+  const { itemCount } = useCart();
   const [showNav, setShowNav] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +15,7 @@ const Navbar = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowNav(true);
-    }, 7000); // Wait for logo animation to complete
+    }, 1000); // Reduced wait time for better UX
 
     return () => clearTimeout(timer);
   }, []);
@@ -71,8 +73,13 @@ const Navbar = () => {
               </Link>
 
               <div className="flex items-center gap-4">
-                <Link to="/cart">
+                <Link to="/cart" className="relative">
                   <ShoppingCart className="h-6 w-6 text-white" />
+                  {itemCount > 0 && (
+                    <Badge className="absolute -top-2 -right-2 bg-mint text-forest w-5 h-5 p-0 flex items-center justify-center rounded-full text-xs font-bold">
+                      {itemCount > 99 ? '99+' : itemCount}
+                    </Badge>
+                  )}
                 </Link>
                 <Link to="/profile">
                   <User className="h-6 w-6 text-white" />
