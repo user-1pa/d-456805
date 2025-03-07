@@ -223,3 +223,16 @@ async function validateAuthorization(req: Request, supabase: any): Promise<boole
       .single();
       
     return userRoles?.role === 'admin';
+  }
+  
+  // For service key authorization (typically used for automated tasks)
+  if (authHeader.startsWith('Service-Key ')) {
+    const serviceKey = authHeader.split(' ')[1];
+    
+    // Compare with stored service key
+    // In production, you should use a more secure comparison method
+    return serviceKey === Deno.env.get('NEWSLETTER_SERVICE_KEY');
+  }
+  
+  return false;
+}
