@@ -321,3 +321,7 @@ export default function FAQ() {
             Chat with Fitness Assistant
           </a>
         </div>
+      </div>
+    </div>
+  );
+}
